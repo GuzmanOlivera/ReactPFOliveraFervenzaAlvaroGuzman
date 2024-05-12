@@ -1,25 +1,29 @@
-# Proyecto React con Vite y Google API Key
+# Proyecto de libreria online
 
-Este proyecto React utiliza Vite como bundler y necesita una API key de Google para funcionar correctamente.
+Este proyecto es una libreria online donde los usuarios pueden explorar y comprar una variedad de libros de informática escogiendo entre dos categorías de libros: programación y base de datos. 
 
-## Uso de la API Key de Google
+## Introducción
 
-Para que este proyecto funcione correctamente, necesitas obtener una API key de Google Books y configurarla en un archivo `config.js`. Aquí está cómo hacerlo:
+El objetivo de este proyecto es proporcionar una plataforma intuitiva para que los usuarios encuentren y compren libros de informática de manera fácil y conveniente. Todos los libros disponibles en la plataforma tienen un stock fijo, lo que significa que la disponibilidad de los libros no se ve afectada por las compras realizadas por los usuarios. Esto garantiza que los usuarios siempre puedan encontrar los libros que desean comprar.
 
-1. **Obtener una API Key de Google**:
-   - Visita la [consola de desarrolladores de Google](https://console.developers.google.com/).
-   - Crea un nuevo proyecto o selecciona uno existente.
-   - Habilita la API de Google Books.
-   - Genera una nueva API key en la sección de credenciales.
+## Tecnologías utilizadas
 
-2. **Crear el archivo `config.js`**:
-   - Crea un nuevo archivo llamado `config.js` dentro de la carpeta `src`, la cual ya está creada dentro de la carpeta `vite-project`.
-   - Copia y pega el siguiente código en `config.js`:
+El proyecto utiliza Firebase para almacenar los datos de los libros y gestionar las órdenes de compra de los usuarios. Además, se utiliza React.js como biblioteca de interfaz de usuario para crear una experiencia interactiva y receptiva para los usuarios.
 
-   ```javascript
-   // src/config.js
-   const config = {
-     apiKey: 'TU_API_KEY_AQUI'
-   };
+## Configuración del Proyecto
 
-   export default config;
+Para configurar el proyecto, se requiere el uso de variables de entorno que deben configurarse en un archivo `.env` que deberá ubicarse en la raíz del proyecto. Se proporciona un archivo `.env.example` como plantilla, que debe renombrarse a `.env` y completarse con las credenciales de Firebase proporcionadas por el desarrollador.
+
+Es importante tener en cuenta que el proyecto requiere que se carguen libros en la base de datos. Estos libros se obtienen a través de la API de Google Books y tienen una estructura específica que se espera para el correcto funcionamiento de la aplicación.
+
+## Estructura de los libros
+
+Los libros cargados en la base de datos deben tener la siguiente estructura:
+
+- Título
+- Autor(es)
+- Descripción
+- Precio
+- Stock
+- Categoría
+- Imagen de Portada
