@@ -1,5 +1,5 @@
 const config = {
-    apiKey: "AIzaSyDYbYaaKtwY8LIblmOQvF-W0Plb4geCIkg"
+    apiKey: import.meta.env.VITE_GOOGLE_API_KEY
 };
 
 export default config;
