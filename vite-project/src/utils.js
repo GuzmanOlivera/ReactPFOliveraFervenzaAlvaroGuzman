@@ -51,41 +51,34 @@ export const createSale = async (items, user, total) => {
         throw new Error("No puedes crear una orden de compra con el carrito vacío");
     }
 
-    const requiredUserData = ['firstName', 'lastName', 'phoneNumber', 'email','repeatEmail'];
+    const requiredUserData = ['firstName', 'lastName', 'phoneNumber', 'email', 'repeatEmail'];
     const missingUserData = requiredUserData.filter(field => !user[field]);
-  
+
     if (missingUserData.length > 0) {
-      throw new Error(`Faltan datos del usuario: ${missingUserData.join(', ')}`);
-    }  
+        throw new Error(`Faltan datos del usuario: ${missingUserData.join(', ')}`);
+    }
 
     const salesCollection = collection(db, "orders");
 
-    const filteredItems = items.map(item => {
-        const { book, quantity } = item;
+    const groupedItems = groupItemsById(items);
 
-        if (!book.stock || quantity > book.stock) {
+    for (const itemId in groupedItems) {
+        const { book, totalQuantity } = groupedItems[itemId];
+
+        if (!book.stock || totalQuantity > book.stock) {
             throw new Error(`No hay suficiente stock disponible para el libro ${book.volumeInfo.title}`);
         }
-
-        const filteredBook = {
-            id: book.id,
-            title: book.volumeInfo.title,
-            description: book.volumeInfo.description,
-            saleInfo: book.saleInfo || {}
-        };
-
-        if (book.saleInfo && book.saleInfo.listPrice) {
-            filteredBook.saleInfo.listPrice = book.saleInfo.listPrice;
-        }
-
-        return {
-            book: filteredBook,
-            quantity: quantity
-        };
-    });
+    }
+    const simplifiedItems = Object.values(groupedItems).map(group => ({
+        id: group.book.id,
+        title: group.book.volumeInfo.title,
+        description: group.book.volumeInfo.description,
+        price: group.book.saleInfo.listPrice?.amount || 0,
+        quantity: group.totalQuantity
+    }));
 
     const sale = {
-        items: filteredItems,
+        items: simplifiedItems,
         user: user,
         purchaseDate: serverTimestamp(),
         status: "generada",
@@ -102,3 +95,22 @@ export const createSale = async (items, user, total) => {
     }
 };
 
+const groupItemsById = (items) => {
+    const groupedItems = {};
+
+    for (const item of items) {
+        const { book, quantity } = item;
+        const itemId = book.id;
+
+        if (!groupedItems[itemId]) {
+            groupedItems[itemId] = {
+                book: book,
+                totalQuantity: 0
+            };
+        }
+
+        groupedItems[itemId].totalQuantity += quantity;
+    }
+
+    return groupedItems;
+};

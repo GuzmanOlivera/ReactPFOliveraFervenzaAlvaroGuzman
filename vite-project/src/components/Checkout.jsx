@@ -74,7 +74,7 @@ const Checkout = () => {
           </div>
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Total de la orden:</h3>
-            <span>${calculateTotal(items)}</span>
+            <span>${calculateTotal(items).toFixed(2)}</span>
           </div>
 
           <form onSubmit={handleSubmit} disabled={purchaseCompleted}>
