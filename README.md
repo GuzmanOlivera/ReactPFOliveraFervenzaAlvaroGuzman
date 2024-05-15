@@ -18,25 +18,26 @@ Es importante destacar que el proyecto requiere cargar libros de programación y
 
 ## Estructura de los libros
 
-Los libros cargados en la base de datos deben tener la siguiente estructura:
+Los libros cargados en la base de datos Firebase, en la colección "items", deben seguir la estructura proporcionada por la API de Google Books. A continuación se enumeran los campos más relevantes:
 
-- Título
-- Autor(es)
-- Descripción
-- Precio
-- Stock
-- Categoría
-- Imagen de Portada
+ID: id
+Título: volumeInfo.title
+Autor(es): volumeInfo.authors
+Descripción: volumeInfo.description
+Precio: saleInfo.listPrice.amount (en la moneda especificada por saleInfo.listPrice.currencyCode)
+Stock: stock
+Categoría: volumeInfo.categories
+Imagen de Portada: volumeInfo.imageLinks.thumbnail (o cualquier otra URL de imagen proporcionada)
 
 ## Demostraciones
 
-### Compra y Finalización
+### Compra y finalización
 
 ![Compra y Finalización](Codebook_PF1.gif)
 
 En este gif se muestra el flujo para comprar un libro y generar una orden de compra.
 
-### Validación de Stock
+### Validación de stock
 
 ![Validación de Stock](Codebook_PF2.gif)
 
