@@ -42,3 +42,34 @@ En este gif se muestra el flujo para comprar un libro y generar una orden de com
 ![Validación de Stock](Codebook_PF2.gif)
 
 En este gif se muestra un ejemplo donde se valida el stock y no se permite comprar un libro porque el stock es menor a la cantidad que se intenta comprar.
+
+## Uso
+
+### Configuración inicial
+
+1. Clona el repositorio desde GitHub a tu máquina local utilizando el siguiente comando:
+    ```
+    git clone https://github.com/GuzmanOlivera/PFOliveraFervenzaAlvaroGuzman.git
+    ```
+
+2. Navega al directorio del proyecto:
+    ```
+    cd PFOliveraFervenzaAlvaroGuzman
+    ```
+
+3. Instala las dependencias necesarias utilizando npm:
+    ```
+    npm install
+    ```
+
+4. Configura las variables de entorno para Firebase en el archivo .env
+
+5. Levanta el servidor
+
+    ```
+    cd vite-project
+    npm run dev
+    ```
+
+6. Abre tu navegador y navega a http://localhost:5173
+
