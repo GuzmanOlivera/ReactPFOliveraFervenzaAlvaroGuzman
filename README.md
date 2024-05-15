@@ -27,3 +27,17 @@ Los libros cargados en la base de datos deben tener la siguiente estructura:
 - Stock
 - Categoría
 - Imagen de Portada
+
+## Demostraciones
+
+### Compra y Finalización
+
+![Compra y Finalización](Codebook_PF1.gif)
+
+En este gif se muestra el flujo para comprar un libro y generar una orden de compra.
+
+### Validación de Stock
+
+![Validación de Stock](Codebook_PF2.gif)
+
+En este gif se muestra un ejemplo donde se valida el stock y no se permite comprar un libro porque el stock es menor a la cantidad que se intenta comprar.
