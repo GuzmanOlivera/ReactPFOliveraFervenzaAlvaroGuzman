@@ -1,4 +1,4 @@
-# Proyecto de libreria online
+# Proyecto de libreria online: CodeBook Emporium
 
 Este proyecto es una libreria online donde los usuarios pueden explorar y comprar una variedad de libros de informática escogiendo entre dos categorías de libros: programación y base de datos. 
 
@@ -14,7 +14,7 @@ El proyecto utiliza Firebase para almacenar los datos de los libros y gestionar 
 
 Para configurar el proyecto, se requiere el uso de variables de entorno que deben configurarse en un archivo `.env` que deberá ubicarse en la raíz del proyecto. Se proporciona un archivo `.env.example` como plantilla, que debe renombrarse a `.env` y completarse con las credenciales de Firebase proporcionadas por el desarrollador.
 
-Es importante tener en cuenta que el proyecto requiere que se carguen libros en la base de datos. Estos libros se obtienen a través de la API de Google Books y tienen una estructura específica que se espera para el correcto funcionamiento de la aplicación.
+Es importante destacar que el proyecto requiere cargar libros de programación y bases de datos desde la API de Google Books hacia Firebase. Este proceso se puede llevar a cabo mediante la función fetchAndSaveBooks del archivo firebaseSaveBooks.js. Se incluye este archivo en el proyecto por si es necesario volver a cargar los libros desde la API de Google Books hacia Firebase en algún momento. Cabe destacar que como parte del proyecto final de Coderhouse, los libros ya se encuentran cargados. Solo en casos específicos de necesidad de recarga, se deberá configurar la variable de entorno VITE_GOOGLE_API_KEY en el archivo .env.
 
 ## Estructura de los libros
 

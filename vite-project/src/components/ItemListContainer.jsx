@@ -18,7 +18,7 @@ function ItemListContainer() {
         }
         setBooks(fetchedBooks);
       } catch (error) {
-        console.error('Error fetching books:', error);
+        console.error('Error al obtener los libros: ', error);
         toast.error('Error al obtener los libros: ' + error);
       }
     };

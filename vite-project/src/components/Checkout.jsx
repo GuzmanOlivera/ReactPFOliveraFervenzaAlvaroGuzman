@@ -13,7 +13,7 @@ const Checkout = () => {
   });
 
   const { items, clearCart } = useCart();
-  const [purchaseCompleted, setPurchaseCompleted] = useState(false);
+  const [purchaseDone, setPurchaseDone] = useState(false);
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -32,7 +32,7 @@ const Checkout = () => {
 
       const orderId = await createSale(items, formData, calculateTotal(items));
       toast.success("Orden de compra creada con ID: " + orderId);
-      setPurchaseCompleted(true);
+      setPurchaseDone(true);
       clearCart();
     } catch (error) {
       toast.error('Error al crear la orden de compra: ' + error.message);
@@ -49,14 +49,14 @@ const Checkout = () => {
     return acc;
   }, {});
 
-    if (items.length === 0 && !purchaseCompleted) {
-      toast.error("No puedes realizar una compra vacía.");
-      return (
-        <div className="flex justify-center items-center my-5">
-          <p className="italic text-center">No hay libros en el carrito.  No puedes usar esta página</p>
-        </div>
-      );
-    }
+  if (items.length === 0 && !purchaseDone) {
+    toast.error("No puedes realizar una compra vacía.");
+    return (
+      <div className="flex justify-center items-center my-5">
+        <p className="italic text-center">No hay libros en el carrito.  No puedes usar esta página</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center">
@@ -77,7 +77,7 @@ const Checkout = () => {
             <span>${calculateTotal(items).toFixed(2)}</span>
           </div>
 
-          <form onSubmit={handleSubmit} disabled={purchaseCompleted}>
+          <form onSubmit={handleSubmit} disabled={purchaseDone}>
             <div className="mb-4">
               <label className="block text-sm font-bold mb-1" htmlFor="firstName">Nombre</label>
               <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} className="w-full border rounded-md p-2" required />
@@ -99,7 +99,9 @@ const Checkout = () => {
               <input type="email" id="repeatEmail" name="repeatEmail" value={formData.repeatEmail} onChange={handleInputChange} className="w-full border rounded-md p-2" required />
             </div>
             <div className="flex justify-center">
-              <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Realizar compra</button>
+              <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" disabled={purchaseDone}>
+                Realizar compra
+              </button>
             </div>
           </form>
         </div>
