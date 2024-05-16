@@ -18,18 +18,20 @@ Es importante señalar que, como parte del proyecto final de Coderhouse, los lib
 
 Esta aclaración es necesaria debido a que el proyecto requiere cargar libros de programación y bases de datos desde la API de Google Books hacia Firebase. Este proceso se puede llevar a cabo mediante la función fetchAndSaveBooks del archivo firebaseSaveBooks.js, el cual está incluido en el proyecto por si fuese necesario volver a cargar los libros desde la API de Google Books hacia Firebase en algún momento. 
 
-## Estructura de los libros
+### Estructura de los libros en la base de datos firebase
 
-Los libros cargados en la base de datos Firebase, en la colección "items", deben seguir la estructura proporcionada por la API de Google Books. A continuación se enumeran los campos más relevantes:
+Los libros cargados en la colección "items" de la base de datos Firebase deben seguir la estructura proporcionada por la API de Google Books. A continuación se detallan los campos más relevantes que deben incluir:
 
-ID: id
-Título: volumeInfo.title
-Autor(es): volumeInfo.authors
-Descripción: volumeInfo.description
-Precio: saleInfo.listPrice.amount (en la moneda especificada por saleInfo.listPrice.currencyCode)
-Stock: stock
-Categoría: volumeInfo.categories
-Imagen de Portada: volumeInfo.imageLinks.thumbnail (o cualquier otra URL de imagen proporcionada)
+- **ID**: `id`
+- **Título**: `volumeInfo.title`
+- **Autor(es)**: `volumeInfo.authors`
+- **Descripción**: `volumeInfo.description`
+- **Precio**: `saleInfo.listPrice.amount` (en la moneda especificada por `saleInfo.listPrice.currencyCode`)
+- **Stock**: `stock`
+- **Categoría**: `volumeInfo.categories`
+- **Imagen de Portada**: `volumeInfo.imageLinks.thumbnail` (o cualquier otra URL de imagen proporcionada)
+
+Asegúrate de que los libros cargados en la base de datos Firebase sigan esta estructura para una mejor consistencia y compatibilidad con la aplicación.
 
 ## Demostraciones
 
