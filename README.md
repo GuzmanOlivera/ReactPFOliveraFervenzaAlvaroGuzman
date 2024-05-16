@@ -94,6 +94,6 @@ En este gif se muestra un ejemplo donde se valida el stock y no se permite compr
     npm run dev
     ```
 
-6. Abre tu navegador y accede a [http://localhost:5173](http://localhost:5173) o [http://localhost:<puerto>](http://localhost:<puerto>), donde `<puerto>` es el puerto configurado para la aplicación. Por defecto, el puerto es 5173.
+6. Abre tu navegador y accede a [http://localhost:5173](http://localhost:5173) o [http://localhost:<puerto>](http://localhost:puerto), donde `puerto` es el número de puerto configurado para la aplicación. Por defecto, el puerto es 5173.
 
 
