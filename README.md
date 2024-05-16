@@ -12,9 +12,11 @@ El proyecto utiliza Firebase para almacenar los datos de los libros y gestionar 
 
 ## Configuración del proyecto
 
-Para configurar el proyecto, se requiere el uso de variables de entorno que deben configurarse en un archivo `.env` que deberá ubicarse en la raíz del proyecto. Se proporciona un archivo `.env.example` como plantilla, que debe renombrarse a `.env` y completarse con las credenciales de Firebase proporcionadas por el desarrollador.
+Para configurar el proyecto, es necesario utilizar variables de entorno que deben establecerse en un archivo `.env`, ubicado en la carpeta "vite-project" del proyecto. Se proporciona un archivo `.env.example` en el mismo directorio, que, si se desea utilizar, debe ser renombrado a `.env` y completado con las credenciales de Firebase proporcionadas por el desarrollador.
 
-Es importante destacar que el proyecto requiere cargar libros de programación y bases de datos desde la API de Google Books hacia Firebase. Este proceso se puede llevar a cabo mediante la función fetchAndSaveBooks del archivo firebaseSaveBooks.js. Se incluye este archivo en el proyecto por si es necesario volver a cargar los libros desde la API de Google Books hacia Firebase en algún momento. Cabe destacar que como parte del proyecto final de Coderhouse, los libros ya se encuentran cargados. Solo en casos específicos de necesidad de recarga, se deberá configurar la variable de entorno VITE_GOOGLE_API_KEY en el archivo .env.
+Es importante señalar que, como parte del proyecto final de Coderhouse, los libros ya están cargados. Únicamente en casos específicos de necesidad de recarga, será necesario configurar la variable de entorno VITE_GOOGLE_API_KEY en el archivo .env.
+
+Esta aclaración es necesaria debido a que el proyecto requiere cargar libros de programación y bases de datos desde la API de Google Books hacia Firebase. Este proceso se puede llevar a cabo mediante la función fetchAndSaveBooks del archivo firebaseSaveBooks.js, el cual está incluido en el proyecto por si fuese necesario volver a cargar los libros desde la API de Google Books hacia Firebase en algún momento. 
 
 ## Estructura de los libros
 
@@ -33,13 +35,13 @@ Imagen de Portada: volumeInfo.imageLinks.thumbnail (o cualquier otra URL de imag
 
 ### Compra y finalización
 
-![Compra y Finalización](Codebook_PF1.gif)
+![Compra y finalización](Codebook_PF1.gif)
 
 En este gif se muestra el flujo para comprar un libro y generar una orden de compra.
 
 ### Validación de stock
 
-![Validación de Stock](Codebook_PF2.gif)
+![Validación de stock](Codebook_PF2.gif)
 
 En este gif se muestra un ejemplo donde se valida el stock y no se permite comprar un libro porque el stock es menor a la cantidad que se intenta comprar.
 
@@ -71,5 +73,5 @@ En este gif se muestra un ejemplo donde se valida el stock y no se permite compr
     npm run dev
     ```
 
-6. Abre tu navegador y navega a http://localhost:5173
+6. Abre tu navegador y accede a http://localhost:5173
 
