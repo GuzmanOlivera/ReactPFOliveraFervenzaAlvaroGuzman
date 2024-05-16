@@ -14,7 +14,7 @@ El proyecto utiliza Firebase para almacenar los datos de los libros y gestionar 
 
 Para configurar el proyecto, es necesario utilizar variables de entorno que deben establecerse en un archivo `.env`, ubicado en la carpeta "vite-project" del proyecto. Se proporciona un archivo `.env.example` en el mismo directorio, que, si se desea utilizar, debe ser renombrado a `.env` y completado con las credenciales de Firebase proporcionadas por el desarrollador.
 
-Es importante señalar que, como parte del proyecto final de Coderhouse, los libros ya están cargados. Únicamente en casos específicos de necesidad de recarga, será necesario configurar la variable de entorno VITE_GOOGLE_API_KEY en el archivo .env.
+Es importante señalar que, como parte del proyecto final de Coderhouse, los libros ya están cargados. Únicamente en casos específicos de necesidad de recarga, será necesario configurar la variable de entorno VITE_GOOGLE_API_KEY en el archivo `.env`.
 
 Esta aclaración es necesaria debido a que el proyecto requiere cargar libros de programación y bases de datos desde la API de Google Books hacia Firebase. Este proceso se puede llevar a cabo mediante la función fetchAndSaveBooks del archivo firebaseSaveBooks.js, el cual está incluido en el proyecto por si fuese necesario volver a cargar los libros desde la API de Google Books hacia Firebase en algún momento. 
 
@@ -35,23 +35,23 @@ Asegúrate de que los libros cargados en la base de datos Firebase sigan esta es
 
 ### Estructura de las órdenes de compra en la base de datos de Firebase
 
-La colección "orders" almacena las órdenes de compra en base de datos y contiene la siguiente estructura:
+La colección "orders" almacena las órdenes de compra en la base de datos y contiene la siguiente estructura:
 
-- **items** (array): cada posición del array es un map que guarda al item que se compró con la siguiente información:
-  - **description** (string)
-  - **id** (string)
-  - **price** (number)
-  - **quantity** (number)
-  - **title** (string)
-- **purchaseDate** (timestamp)
-- **status** (string)
-- **total** (number)
-- **user** (map): 
-  - **email** (string)
-  - **firstName** (string)
-  - **lastName** (string)
-  - **phoneNumber** (string)
-  - **repeatEmail** (string)
+- **items** (array): Cada posición del array es un map que guarda la información de un ítem (libro) comprado.
+  - **description** (`string`): Descripción del ítem.
+  - **id** (`string`): ID del ítem.
+  - **price** (`number`): Precio del ítem.
+  - **quantity** (`number`): Cantidad del ítem comprado.
+  - **title** (`string`): Título del ítem.
+- **purchaseDate** (`timestamp`): Fecha y hora en que se realizó la compra.
+- **status** (`string`): Estado de la orden de compra.
+- **total** (`number`): Total de la orden de compra.
+- **user** (map): Información del usuario que realizó la compra.
+  - **email** (`string`): Correo electrónico del usuario.
+  - **firstName** (`string`): Nombre del usuario.
+  - **lastName** (`string`): Apellido del usuario.
+  - **phoneNumber** (`string`): Número de teléfono del usuario.
+  - **repeatEmail** (`string`): Correo electrónico de confirmación del usuario.
 
 ## Demostraciones
 
@@ -89,7 +89,6 @@ En este gif se muestra un ejemplo donde se valida el stock y no se permite compr
 4. Configura las variables de entorno para Firebase en el archivo .env
 
 5. Levanta el servidor
-
     ```
     cd vite-project
     npm run dev

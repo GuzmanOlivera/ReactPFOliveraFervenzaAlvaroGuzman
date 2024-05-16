@@ -3,7 +3,7 @@ import ItemCard from './ItemCard';
 import { useParams } from 'react-router-dom';
 import { getBooks, getBooksByCategory } from '../utils';
 
-function ItemListContainer() {
+function ItemCardContainer() {
   const [books, setBooks] = useState([]);
   const params = useParams();
 
@@ -41,4 +41,4 @@ function ItemListContainer() {
   );
 }
 
-export default ItemListContainer;
+export default ItemCardContainer;
