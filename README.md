@@ -35,7 +35,7 @@ Asegúrate de que los libros cargados en la base de datos Firebase sigan esta es
 
 Por otro lado, las órdenes de compra tienen la siguiente estructura:
 
-La colección "orders" también es utilizada en la base de datos y contiene la siguiente estructura:
+La colección "orders" almacena las órdenes de compra en base de datos y contiene la siguiente estructura:
 
 - **items** (array): cada posición del array guarda un item con la siguiente información:
   - **description**
